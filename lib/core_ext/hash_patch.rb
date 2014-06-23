@@ -1,5 +1,5 @@
 class Hash
-  def symbolize_keys
+  def tl_symbolize_keys
     inject({ }) do |options, (key, value)|
       new_key = case key
       when String
@@ -7,7 +7,7 @@ class Hash
       end
       
       new_value = case value
-      when Hash then value.symbolize_keys
+      when Hash then value.tl_symbolize_keys
       when String
         Integer(value) rescue value
       else value
@@ -18,7 +18,7 @@ class Hash
     end
   end
 
-  def symbolize_keys!
-    self.replace(self.symbolize_keys)
+  def tl_symbolize_keys!
+    self.replace(self.tl_symbolize_keys)
   end
 end

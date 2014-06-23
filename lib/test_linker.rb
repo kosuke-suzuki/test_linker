@@ -85,9 +85,9 @@ class TestLinker
     
     TestLinker.log "response class: #{response.class}"
     if response.is_a?(Array) && response.first.is_a?(Hash)
-      response.each { |r| r.symbolize_keys! }
+      response.each { |r| r.tl_symbolize_keys! }
     elsif response.is_a? Hash
-      response.symbolize_keys!
+      response.tl_symbolize_keys!
     end
 
     TestLinker.log "Received response:"
