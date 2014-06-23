@@ -56,7 +56,10 @@ class TestLinker
     #   info.
     def builds_for_test_plan plan_id
       args = { :testplanid => plan_id }
-      make_call("tl.getBuildsForTestPlan", args, "1.0b5")
+      response = make_call("tl.getBuildsForTestPlan", args, "1.0b5")
+      if response.nil? or response.empty? or response == ""
+        response = []
+      end
     end
     alias_method :getBuildsForTestPlan, :builds_for_test_plan
 
