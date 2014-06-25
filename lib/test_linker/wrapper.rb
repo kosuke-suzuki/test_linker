@@ -60,6 +60,7 @@ class TestLinker
       if response.nil? or response.empty? or response == ""
         response = []
       end
+      response
     end
     alias_method :getBuildsForTestPlan, :builds_for_test_plan
 
